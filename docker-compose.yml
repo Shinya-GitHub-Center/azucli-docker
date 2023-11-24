@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  azu-cli:
+    build:
+      context: ./docker/azu-cli
+      dockerfile: Dockerfile
+    volumes:
+      - type: bind
+        source: ./azu-cli/workdir
+        target: /home/entra-user/workdir
+      - type: bind
+        source: ./azu-cli/.ssh
+        target: /home/entra-user/.ssh
+    user: entra-user
+    env_file:
+      - ./.env
+    tty: true
+    stdin_open: true
