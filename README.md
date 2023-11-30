@@ -7,19 +7,26 @@ Azure management tool - Azure CLI - docker container version
 1. Download the source of the latest commit or latest release of this repository, then unzip and rename the root folder's name to your favorite project name.
 2. Rename the file name `.env.sample` to `.env`
 3. Set your own user principal name and its password into `.env` file for logging in user (I recommend to use newly created user at your Azure account, not tenant main administrator)
-4. On your local linux environment, go to the directory where this project's `docker-compose.yml` file exists, then run the following command:
+4. Set the subscription ID where you want to use it to create any resources.
+5. (optional) If you want to create Resource Group via this azucli, please set RG name (GROUP) and region name (LOCATION) as well.
+6. On your local linux environment, go to the directory where this project's `docker-compose.yml` file exists, then run the following command:
 ```
 docker compose up -d
 ```
-5. Enter the docker container, the command for instance:
+7. Enter the docker container, the command for instance:
 ```
 docker exec -it <created docker container name> bash
 ```
-6. Run the following command to login to azure
+8. Run the following command to login to azure
 ```
-bash ./login-user-principal.sh
+bash ./login.sh
 ```
-7. That's it! You can now use `az` command to manage your azure account (subscription) under the authority of logged-in user.
+9. That's it! You can now use `az` command to manage your azure account (subscription) and resources under the authority of logged-in user.
+
+10. (optional) If you want to create Resource Group via this azucli, please run the following command.
+```
+bash ./res-grp-create.sh
+```
 
 ## Access to Virtual Machine's inside using traditional ssh method
 1. Locate your SSH keyfile (which was linked to the virtual machine) into `./azu-cli/.ssh/keyfiles/` and modify `./azu-cli/.ssh/config` file
@@ -54,7 +61,7 @@ docker compose down
 ```
 
 ## To resume Yesterday's azure work
-Go to #4 of the basic use section
+Go to #6 of the basic use section
 
 ## Please
 * Keep `.env` file secret! Do not upload or share to any public places
