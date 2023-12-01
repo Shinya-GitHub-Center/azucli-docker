@@ -1,4 +1,4 @@
-# [Wiki Site : How to deploy your first WordPress site over Azure cloud](https://github.com/Shinya-GitHub-Center/azucli-docker/wiki)
+# [Wiki Site : Let's study a basic IaaS skill by installing commonly used software](https://github.com/Shinya-GitHub-Center/azucli-docker/wiki)
 
 ## About
 Azure management tool - Azure CLI - docker container version
